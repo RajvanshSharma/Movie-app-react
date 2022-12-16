@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import MovieCard from "./MovieCard";
 import searchButton from "./searchButton.svg";
-// 5a154b07
-const url = "http://www.omdbapi.com/?apikey=5a154b07";
+const url = `https://www.omdbapi.com/?apikey=${process.env.React_App_OMDB}`;
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSerachTerm] = useState('');
@@ -30,8 +29,8 @@ const App = () => {
       </div>
       {movies?.length > 0 ? (
         <div className="container">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} />
+          {movies.map((movie, id) => (
+            <MovieCard movie={movie} key={id} />
           ))}
         </div>
       ) : (
