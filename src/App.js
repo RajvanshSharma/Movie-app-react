@@ -31,7 +31,7 @@ const App = () => {
         <div className="container">
           {movies.map((movie, id) => (
             <MovieCard movie={movie} key={id} />
-          ))}
+          ))} 
         </div>
       ) : (
         <div className="empty">
